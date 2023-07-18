@@ -1,0 +1,5 @@
+langchain==0.0.205
+chromadb==0.3.26
+gpt4all
+sentence_transformers
+pypdf
