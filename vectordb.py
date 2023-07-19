@@ -46,6 +46,6 @@ class ChromaDB(BaseVectorDB):
     def _get_or_create_collection(self):
         """Get or create the collection."""
         return self.client.get_or_create_collection(
-            "embedchain_store",
+            "qa_store",
             embedding_function=self.ef,
         )

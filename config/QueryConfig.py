@@ -54,8 +54,8 @@ class QueryConfig(BaseConfig):
 
     def __init__(
         self,
-        number_documents=None,
-        template: Template = None,
+        number_documents=2,
+        template: Template = DEFAULT_PROMPT_WITH_HISTORY_TEMPLATE,
         model=None,
         temperature=None,
         max_tokens=None,

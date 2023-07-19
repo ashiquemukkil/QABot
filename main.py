@@ -247,7 +247,6 @@ class ChatBot:
 
         global memory
         chat_history = memory.load_memory_variables({})["history"]
-
         if chat_history:
             config.set_history(chat_history)
 
@@ -272,27 +271,6 @@ class ChatBot:
             yield chunk
         memory.chat_memory.add_ai_message(streamed_answer)
         logging.info(f"Answer: {streamed_answer}")
-
-    def dry_run(self, input_query, config: QueryConfig = None):
-        """
-        A dry run does everything except send the resulting prompt to
-        the LLM. The purpose is to test the prompt, not the response.
-        You can use it to test your prompt, including the context provided
-        by the vector database's doc retrieval.
-        The only thing the dry run does not consider is the cut-off due to
-        the `max_tokens` parameter.
-
-        :param input_query: The query to use.
-        :param config: Optional. The `QueryConfig` instance to use as
-        configuration options.
-        :return: The prompt that would be sent to the LLM
-        """
-        if config is None:
-            config = QueryConfig()
-        contexts = self.retrieve_from_database(input_query, config)
-        prompt = self.generate_prompt(input_query, contexts, config)
-        logging.info(f"Prompt: {prompt}")
-        return prompt
 
     def count(self):
         """

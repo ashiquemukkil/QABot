@@ -7,9 +7,6 @@ from config.BaseConfig import BaseConfig
 
 
 class InitConfig(BaseConfig):
-    """
-    Config to initialize an embedchain `App` instance.
-    """
 
     def __init__(self, log_level=None, ef=None, db=None, host=None, port=None, id=None):
         """
