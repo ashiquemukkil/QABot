@@ -93,3 +93,5 @@ class PdfFileChunker(BaseChunker):
             config = TEXT_SPLITTER_CHUNK_PARAMS
         text_splitter = RecursiveCharacterTextSplitter(**config)
         super().__init__(text_splitter)
+
+
